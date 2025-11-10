@@ -7,7 +7,7 @@ public class Storefront {
     String address;
     String phone;
     ArrayList<Product> storeOfferings;
-    ArrayList<Python> toppingOfferings;
+    ArrayList<Topping> toppingOfferings;
 
     public Storefront(String name, String address, String phone, ArrayList<Product> storeOfferings, ArrayList<Python> toppingOfferings) {
         this.name = name;
