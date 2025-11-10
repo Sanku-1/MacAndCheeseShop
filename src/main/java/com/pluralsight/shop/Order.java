@@ -9,6 +9,7 @@ public class Order{
     LocalDateTime timePlaced;
     Cart newOrder;
     boolean isTipPercentage;
+    double totalCost;
 
     public Order(Cart newOrder, LocalDateTime timePlaced, double tipAmount, double taxRate) {
         this.newOrder = newOrder;
@@ -33,11 +34,11 @@ public class Order{
         } else {
             cartCostAfterTipTax = (newOrder.getBaseCost() * (1 + this.taxRate) + this.tipAmount);
         }
-
+        totalCost = cartCostAfterTipTax;
         return cartCostAfterTipTax;
     }
 
-    public void createReceipt() {
 
-    }
+//    public void createReceipt() {
+//    }
 }
