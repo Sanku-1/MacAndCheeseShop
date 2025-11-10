@@ -23,6 +23,10 @@ public class Person {
         System.out.println("You now have " + rewardPoints + " reward points!");
     }
 
+    public double getRewardPoints() {
+        return rewardPoints;
+    }
+
     public void setPassword(String password) {
         this.password = password;
     }
