@@ -1,4 +1,4 @@
-package com.pluralsight;
+package com.pluralsight.shop;
 
 public class Person {
     String name;

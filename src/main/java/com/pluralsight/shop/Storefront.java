@@ -1,0 +1,19 @@
+package com.pluralsight.shop;
+
+import java.util.ArrayList;
+
+public class Storefront {
+    String name;
+    String address;
+    String phone;
+    ArrayList<Product> storeOfferings;
+    ArrayList<Python> toppingOfferings;
+
+    public Storefront(String name, String address, String phone, ArrayList<Product> storeOfferings, ArrayList<Python> toppingOfferings) {
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        this.storeOfferings = new ArrayList<>();
+        this.toppingOfferings = new ArrayList<>();
+    }
+}
