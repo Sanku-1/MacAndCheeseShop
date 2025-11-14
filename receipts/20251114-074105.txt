@@ -1,0 +1,25 @@
+Mac n'Dulgence
+123 Broadway
+646-222-4567
+=====================================
+Customer: Guest
+Date: 2025-11-14 07:41:05
+
+1. American and Cheddar Cheese Mac & Cheese (medium)
+   + Extra Cheese
+   + Extra Meat
+   + Bread Bowl
+   Toppings: Feta Cheese
+   Included Side: Breadsticks
+   Price: $13.60
+
+2. Small Root Beer
+   Price: $2.00
+
+3. Collard Greens
+   Price: $1.50
+
+-------------------------------------
+TOTAL: $17.10
+Reward Points Earned: 68.40
+Thank you for your order!
