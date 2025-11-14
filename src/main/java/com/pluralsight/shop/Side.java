@@ -10,6 +10,6 @@ public class Side extends Product{
 
     @Override
     public double getCost() {
-        return 0;
+        return 1.5;
     }
 }
