@@ -14,7 +14,13 @@ public class MacAndCheese extends Product{
 
     @Override
     public double getCost() {
-        return 0;
+        if (size.equalsIgnoreCase("small")) {
+            return 7;
+        } else if (size.equalsIgnoreCase("medium")) {
+            return 8;
+        } else {
+            return 10;
+        }
     }
 
     public void addTopping(Topping topping) {
