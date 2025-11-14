@@ -6,15 +6,17 @@ public class Storefront {
     String name;
     String address;
     String phone;
-    ArrayList<Product> storeOfferings;
+    ArrayList<Product> signatureOfferings;
     ArrayList<Person> customerList;
+    ArrayList<Topping> toppingOfferings;
 
-    public Storefront(String name, String address, String phone, ArrayList<Product> storeOfferings, ArrayList<Person> customerList) {
+    public Storefront(String name, String address, String phone, ArrayList<Topping> toppingOfferings, ArrayList<Person> customerList) {
         this.name = name;
         this.address = address;
         this.phone = phone;
-        this.storeOfferings = new ArrayList<>();
-        this.customerList = new ArrayList<>();
+        this.signatureOfferings = new ArrayList<>();
+        this.customerList = customerList;
+        this.toppingOfferings = toppingOfferings;
     }
 
     public String getName() {
@@ -22,7 +24,7 @@ public class Storefront {
     }
 
     public void addSignatureProduct (Product product) {
-        storeOfferings.add(product);
+        signatureOfferings.add(product);
     }
 }
 
