@@ -42,6 +42,9 @@ Follow these steps to get your application running within IntelliJ IDEA:
 - Java 17
 - Java Swing (GUI Framework)
 
+## UML Diagram
+[Diagram](https://github.com/Sanku-1/MacAndCheeseShop/blob/master/src/main/resources/Mac%20and%20Cheese%20Shop%20UML%20Diagram.pdf)
+
 ## Demo
 
 ### Screenshots
