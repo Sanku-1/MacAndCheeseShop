@@ -3,8 +3,8 @@ package com.pluralsight.shop;
 public class Side extends Product{
     String name;
 
-    public Side(String productType, String size, int productId, String name) {
-        super(productType, size, productId);
+    public Side(String productType, String size, String name) {
+        super(productType, size);
         this.name = name;
     }
 

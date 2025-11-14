@@ -8,14 +8,16 @@ public class MacAndCheese extends Product {
     boolean isExtraCheese;//(work on it)
     boolean isExtraMeat;
     boolean isBreadBowl;
+    String side;
 
-    public MacAndCheese(String productType, String size, int productId, String flavor, boolean isExtraCheese, boolean isExtraMeat, boolean isBreadBowl) {
-        super(productType, size, productId);
+    public MacAndCheese(String productType, String size, String flavor, boolean isExtraCheese, boolean isExtraMeat, boolean isBreadBowl, String side) {
+        super(productType, size);
         toppingsList = new ArrayList<>();
         this.flavor = flavor;
         this.isExtraCheese = isExtraCheese;
         this.isExtraMeat = isExtraMeat;
         this.isBreadBowl = isBreadBowl;
+        this.side = side;
     }
 
     @Override
@@ -23,7 +25,7 @@ public class MacAndCheese extends Product {
         double baseCost = 0;
         double extrasCost = 0;
         if (size.equalsIgnoreCase("small")) {
-            baseCost = 3.5;
+            baseCost = 7;
             if (isExtraCheese) {
                 extrasCost += 0.3;
             }
@@ -31,7 +33,7 @@ public class MacAndCheese extends Product {
                 extrasCost += 0.5;
             }
         } else if (size.equalsIgnoreCase("medium")) {
-            baseCost = 9;
+            baseCost = 10;
             if (isExtraCheese) {
                 extrasCost += 0.6;
             }
@@ -39,7 +41,7 @@ public class MacAndCheese extends Product {
                 extrasCost += 1;
             }
         } else {
-            baseCost = 8.50;
+            baseCost = 15;
             if (isExtraCheese) {
                 extrasCost += 0.9;
             }
