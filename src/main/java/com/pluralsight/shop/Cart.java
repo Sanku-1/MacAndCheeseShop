@@ -25,7 +25,7 @@ public abstract class Cart {
     }
 
     public double getRewardPoints() {
-        return getBaseCost()/100.0;
+        return getBaseCost()*4.0;
     }
 
     public void checkOut() {
