@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MacAndCheese extends Product {
-    String flavor; //(Buffalo, BBQ, Plain, Four Cheese)
+    String flavor;
     ArrayList<Topping> toppingsList;
     boolean isExtraCheese;//(work on it)
     boolean isExtraMeat;
