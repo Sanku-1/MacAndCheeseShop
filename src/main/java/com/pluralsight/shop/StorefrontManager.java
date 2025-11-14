@@ -116,8 +116,6 @@ public class StorefrontManager {
         FileReader fileReader = new FileReader("sides.csv");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         String line;
-        int id = 1;
-
         while ((line = bufferedReader.readLine()) != null) {
             sides.add(new Side("Side", "Regular", line));
         }
