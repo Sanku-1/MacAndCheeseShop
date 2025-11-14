@@ -10,6 +10,12 @@ public class Drink extends Product{
 
     @Override
     public double getCost() {
-        return 0;
+        if (size.equalsIgnoreCase("small")) {
+            return 2;
+        } else if (size.equalsIgnoreCase("medium")) {
+            return 2.5;
+        } else {
+            return 3;
+        }
     }
 }
