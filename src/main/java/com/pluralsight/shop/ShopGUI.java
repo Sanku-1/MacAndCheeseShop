@@ -154,13 +154,19 @@ public class ShopGUI extends JFrame {
         int breadBowl = JOptionPane.showConfirmDialog(
                 this, "Serve in bread bowl?", "Bread Bowl", JOptionPane.YES_NO_OPTION);
 
+        String[] entreeSides = {"Asparagus", "Breadsticks"};
+        String entreeSide = (String) JOptionPane.showInputDialog(
+                this, "Choose included side:", "Included Side",
+                JOptionPane.QUESTION_MESSAGE, null, entreeSides, entreeSides[0]);
+
         MacAndCheese mac = new MacAndCheese(
                 "Mac and Cheese",
                 size,
                 flavor,
                 extraCheese == JOptionPane.YES_OPTION,
                 extraMeat == JOptionPane.YES_OPTION,
-                breadBowl == JOptionPane.YES_OPTION
+                breadBowl == JOptionPane.YES_OPTION,
+                entreeSide
         );
 
         addToppings(mac);
@@ -170,16 +176,13 @@ public class ShopGUI extends JFrame {
         JOptionPane.showMessageDialog(this, "Mac & Cheese added!");
     }
 
-    // Add toppings to mac & cheese (SIMPLIFIED)
     private void addToppings(MacAndCheese mac) {
-        // Build list of ALL toppings with prices
         ArrayList<String> allToppingNames = new ArrayList<>();
         ArrayList<Topping> allToppings = new ArrayList<>();
 
         for (Topping topping : storefront.toppingOfferings) {
             String displayName = topping.name;
 
-            // Add price to name
             if (topping instanceof MeatTopping) {
                 displayName += " ($1.00)";
             } else if (topping instanceof PremiumTopping) {
@@ -190,14 +193,13 @@ public class ShopGUI extends JFrame {
             allToppings.add(topping);
         }
 
-        // Show ONE list with all toppings
         JList<String> toppingList = new JList<>(allToppingNames.toArray(new String[0]));
         toppingList.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         JScrollPane scrollPane = new JScrollPane(toppingList);
         scrollPane.setPreferredSize(new Dimension(300, 200));
 
         int result = JOptionPane.showConfirmDialog(
-                this, scrollPane, "Select Toppings (Ctrl+Click for multiple)",
+                this, scrollPane, "Select Toppings",
                 JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
 
         if (result == JOptionPane.OK_OPTION) {
@@ -215,9 +217,9 @@ public class ShopGUI extends JFrame {
 
         if (sizeChoice == null) return;
 
-        String size = "small";
-        if (sizeChoice.contains("Medium")) size = "medium";
-        if (sizeChoice.contains("Large")) size = "large";
+        String size = "Small";
+        if (sizeChoice.contains("Medium")) size = "Medium";
+        if (sizeChoice.contains("Large")) size = "Large";
 
         String[] flavors = {"Coke", "Sprite", "Root Beer", "Lemonade", "Iced Tea", "Water"};
         String flavor = (String) JOptionPane.showInputDialog(
@@ -315,7 +317,7 @@ public class ShopGUI extends JFrame {
 
             if (product instanceof MacAndCheese) {
                 MacAndCheese mac = (MacAndCheese) product;
-                bufferedWriter.write(mac.size + " " + mac.flavor + " Mac & Cheese");
+                bufferedWriter.write(mac.flavor + " Mac & Cheese (" + mac.size + ")");
                 bufferedWriter.newLine();
                 if (mac.isExtraCheese) bufferedWriter.write("   + Extra Cheese\n");
                 if (mac.isExtraMeat) bufferedWriter.write("   + Extra Meat\n");
@@ -328,6 +330,7 @@ public class ShopGUI extends JFrame {
                     }
                     bufferedWriter.newLine();
                 }
+                bufferedWriter.write("   Included Side: " + mac.side + "\n");
                 bufferedWriter.write("   Price: $" + String.format("%.2f", mac.getCost()));
             } else if (product instanceof Drink) {
                 Drink drink = (Drink) product;
@@ -357,15 +360,57 @@ public class ShopGUI extends JFrame {
         bufferedWriter.close();
     }
 
-    // Clear the cart
     private void clearOrder() {
         cart = new CustomerCart(new ArrayList<>(), currentUser);
         updateDisplay();
     }
 
     private void updateDisplay() {
+        StringBuilder text = new StringBuilder();
+        text.append("CURRENT ORDER\n");
+        text.append("===========================================\n\n");
+
+        if (cart.cartList.isEmpty()) {
+            text.append("Your cart is empty.\n");
+        } else {
+            int itemNum = 1;
+            for (Product product : cart.cartList) {
+                text.append(itemNum).append(". ");
+
+                if (product instanceof MacAndCheese) {
+                    MacAndCheese mac = (MacAndCheese) product;
+                    text.append(mac.flavor).append(" Mac & Cheese (").append(mac.size).append(")\n");
+                    if (mac.isExtraCheese) text.append("   + Extra Cheese\n");
+                    if (mac.isExtraMeat) text.append("   + Extra Meat\n");
+                    if (mac.isBreadBowl) text.append("   + Bread Bowl\n");
+                    if (!mac.toppingsList.isEmpty()) {
+                        text.append("   Toppings: ");
+                        for (int i = 0; i < mac.toppingsList.size(); i++) {
+                            text.append(mac.toppingsList.get(i).name);
+                            if (i < mac.toppingsList.size() - 1) text.append(", ");
+                        }
+                        text.append("\n");
+                    }
+                    text.append("   Included Side: ").append(mac.side).append("\n");
+                } else if (product instanceof Drink) {
+                    Drink drink = (Drink) product;
+                    text.append(drink.size).append(" ").append(drink.name).append("\n");
+                } else if (product instanceof Side) {
+                    Side side = (Side) product;
+                    text.append(side.name).append("\n");
+                }
+
+                text.append("   $").append(String.format("%.2f", product.getCost())).append("\n\n");
+                itemNum++;
+            }
+        }
+
+        orderDisplay.setText(text.toString());
+        totalLabel.setText("Total: $" + String.format("%.2f", cart.getBaseCost()));
     }
 
     private void updateUserLabel() {
+        userLabel.setText("User: " + currentUser.getName() + " | Points: " +
+                String.format("%.2f", currentUser.getRewardPoints()) + "  ");
     }
 }
