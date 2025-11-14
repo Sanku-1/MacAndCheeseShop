@@ -184,9 +184,9 @@ public class ShopGUI extends JFrame {
             String displayName = topping.name;
 
             if (topping instanceof MeatTopping) {
-                displayName += " ($1/$2/$3)";
+                displayName += " ($2/$4/$6)";
             } else if (topping instanceof PremiumTopping) {
-                displayName += " ($0.75/$1.50/$2.25)";
+                displayName += " ($1/$2/$3)";
             } else {
                 displayName += " (Free)";
             }
