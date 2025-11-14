@@ -13,6 +13,6 @@ public abstract class Topping {
 
 
     public double getValue() {
-        return 1;
+        return 0;
     }
 }

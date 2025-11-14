@@ -18,6 +18,18 @@ public class Person {
         this.phoneNumber = phoneNumber;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public double getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
     public void addRewardPoints(double newPoints) {
         this.rewardPoints += newPoints;
         System.out.println("You now have " + rewardPoints + " reward points!");
