@@ -50,7 +50,7 @@ Follow these steps to get your application running within IntelliJ IDEA:
 [Ordering Entree](https://github.com/Sanku-1/MacAndCheeseShop/blob/master/src/main/resources/Ordering%20entree.png) \
 [Checkout Empty Cart](https://github.com/Sanku-1/MacAndCheeseShop/blob/master/src/main/resources/Checkout%20empty%20cart.png) \
 [Completed Checkout](https://github.com/Sanku-1/MacAndCheeseShop/blob/master/src/main/resources/Completed%20checkout.png) \
-[Receipt](https://github.com/Sanku-1/MacAndCheeseShop/blob/master/src/main/resources/Receipt.png) \
+[Receipt](https://github.com/Sanku-1/MacAndCheeseShop/blob/master/src/main/resources/Receipt.png) 
 
 ## Interesting Code
 
