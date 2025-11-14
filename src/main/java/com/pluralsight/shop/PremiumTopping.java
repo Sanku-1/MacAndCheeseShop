@@ -8,6 +8,6 @@ public class PremiumTopping extends Topping {
     }
 
     public double getValue() {
-        return 2;
+        return 1;
     }
 }

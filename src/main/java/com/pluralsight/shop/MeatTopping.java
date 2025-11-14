@@ -6,6 +6,6 @@ public class MeatTopping extends Topping {
     }
 
     public double getValue() {
-        return 1;
+        return 2;
     }
 }
