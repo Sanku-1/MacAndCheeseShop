@@ -7,13 +7,15 @@ public class MacAndCheese extends Product {
     ArrayList<Topping> toppingsList;
     boolean isExtraCheese;//(work on it)
     boolean isExtraMeat;
+    boolean isBreadBowl;
 
-    public MacAndCheese(String productType, String size, int productId, String flavor, boolean isExtraCheese, boolean isExtraMeat) {
+    public MacAndCheese(String productType, String size, int productId, String flavor, boolean isExtraCheese, boolean isExtraMeat, boolean isBreadBowl) {
         super(productType, size, productId);
         toppingsList = new ArrayList<>();
         this.flavor = flavor;
         this.isExtraCheese = isExtraCheese;
         this.isExtraMeat = isExtraMeat;
+        this.isBreadBowl = isBreadBowl;
     }
 
     @Override
