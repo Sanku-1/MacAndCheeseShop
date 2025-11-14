@@ -138,7 +138,7 @@ public class ShopGUI extends JFrame {
             size = "large";
         }
 
-        String[] flavors = {"Buffalo", "BBQ", "Plain", "Four Cheese"};
+        String[] flavors = {"American and Cheddar Cheese", "Four Cheese", "Cacio e Pepe", "Vegan"};
         String flavor = (String) JOptionPane.showInputDialog(
                 this, "Choose flavor:", "Mac & Cheese Flavor",
                 JOptionPane.QUESTION_MESSAGE, null, flavors, flavors[0]);
@@ -146,13 +146,13 @@ public class ShopGUI extends JFrame {
         if (flavor == null) return;
 
         int extraCheese = JOptionPane.showConfirmDialog(
-                this, "Add extra cheese?", "Extra Cheese", JOptionPane.YES_NO_OPTION);
+                this, "Add extra cheese?", "Extra Cheese ($0.30/$0.60/$0.90)", JOptionPane.YES_NO_OPTION);
 
         int extraMeat = JOptionPane.showConfirmDialog(
-                this, "Add extra meat?", "Extra Meat", JOptionPane.YES_NO_OPTION);
+                this, "Add extra meat?", "Extra Meat ($0.50/$1.00/$1.50)", JOptionPane.YES_NO_OPTION);
 
         int breadBowl = JOptionPane.showConfirmDialog(
-                this, "Serve in bread bowl?", "Bread Bowl", JOptionPane.YES_NO_OPTION);
+                this, "Serve in bread bowl?", "Bread Bowl (Free)", JOptionPane.YES_NO_OPTION);
 
         String[] entreeSides = {"Asparagus", "Breadsticks"};
         String entreeSide = (String) JOptionPane.showInputDialog(
@@ -184,9 +184,11 @@ public class ShopGUI extends JFrame {
             String displayName = topping.name;
 
             if (topping instanceof MeatTopping) {
-                displayName += " ($1.00)";
+                displayName += " ($1/$2/$3)";
             } else if (topping instanceof PremiumTopping) {
-                displayName += " ($0.75)";
+                displayName += " ($0.75/$1.50/$2.25)";
+            } else {
+                displayName += " (Free)";
             }
 
             allToppingNames.add(displayName);
@@ -199,7 +201,7 @@ public class ShopGUI extends JFrame {
         scrollPane.setPreferredSize(new Dimension(300, 200));
 
         int result = JOptionPane.showConfirmDialog(
-                this, scrollPane, "Select Toppings",
+                this, scrollPane, "Select Toppings (Price S/M/L)",
                 JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
 
         if (result == JOptionPane.OK_OPTION) {
