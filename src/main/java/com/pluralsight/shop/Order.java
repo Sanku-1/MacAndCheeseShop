@@ -39,6 +39,4 @@ public class Order{
     }
 
 
-//    public void createReceipt() {
-//    }
 }
