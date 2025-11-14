@@ -45,13 +45,12 @@ Follow these steps to get your application running within IntelliJ IDEA:
 ## Demo
 
 ### Screenshots
-[Login Screen - Coming Soon]
-[Main Menu - Coming Soon]
-[Mac & Cheese Customization - Coming Soon]
-[Topping Selection - Coming Soon]
-[Order Display - Coming Soon]
-[Checkout Confirmation - Coming Soon]
-[Receipt Example - Coming Soon]
+[Login](https://github.com/Sanku-1/MacAndCheeseShop/blob/master/src/main/resources/Login.png) \
+[New Cart](https://github.com/Sanku-1/MacAndCheeseShop/blob/master/src/main/resources/New%20cart.png) \
+[Ordering Entree](https://github.com/Sanku-1/MacAndCheeseShop/blob/master/src/main/resources/Ordering%20entree.png) \
+[Checkout Empty Cart](https://github.com/Sanku-1/MacAndCheeseShop/blob/master/src/main/resources/Checkout%20empty%20cart.png) \
+[Completed Checkout](https://github.com/Sanku-1/MacAndCheeseShop/blob/master/src/main/resources/Completed%20checkout.png) \
+[Receipt](https://github.com/Sanku-1/MacAndCheeseShop/blob/master/src/main/resources/Receipt.png) \
 
 ## Interesting Code
 
